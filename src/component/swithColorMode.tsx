@@ -6,9 +6,17 @@ const MySwitchComponent = () => {
   const [checked, setChecked] = useState(false);
 
   // Effect to change background color based on checked state
+  // useEffect(() => {
+  //   document.body.style.backgroundColor = checked ? "black" : "white";
+  // }, [checked]);
+
   useEffect(() => {
-    document.body.style.backgroundColor = checked ? "black" : "white";
-  }, [checked]);
+      if (document.body.style.background === "black") {
+        document.body.style.color = "white";
+      } else if (document.body.style.background === "white") {
+        document.body.style.color = "green";
+      }
+  }, []); 
 
   return (
     <HStack>
