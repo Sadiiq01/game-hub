@@ -10,6 +10,7 @@ import {
 import React, { useEffect, useState } from "react";
 import GameGrid from "./GameGrid";
 import Critic from "./Citric";
+import cropImage from "@/services/image-crop";
 
 const GamesGrid = () => {
   const { games, error } = useGames();
@@ -25,7 +26,7 @@ const GamesGrid = () => {
           <GameGrid key={game.id}>
             <Card.Root maxW="sm" borderRadius={10}>
               <Image
-                src={game.background_image}
+                src={cropImage(game.background_image)}
                 sizes="md"
                 width="100%"
                 borderRadius={10}
