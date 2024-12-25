@@ -1,7 +1,15 @@
 import useGames from "@/hooks/useGames";
-import { Card, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Card,
+  Heading,
+  HStack,
+  Image,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import GameGrid from "./GameGrid";
+import Critic from "./Citric";
 
 const GamesGrid = () => {
   const { games, error } = useGames();
@@ -24,9 +32,13 @@ const GamesGrid = () => {
               />
               <Card.Body>
                 <Heading fontSize={"2xl"}>{game.name}</Heading>
-                {game.parent_platform?.map(({ platform }) => {
-                  return <Text key={platform.id}>{platform.name}</Text>;
-                }) || <p>No platforms available</p>}
+                <HStack>
+                  {game.parent_platform?.map(({ platform }) => {
+                    return <Text key={platform.id}>{platform.name}</Text>;
+                  }) || <p>No platforms available</p>}
+
+                  <Critic score={game.metacritic} />
+                </HStack>
               </Card.Body>
             </Card.Root>
           </GameGrid>
