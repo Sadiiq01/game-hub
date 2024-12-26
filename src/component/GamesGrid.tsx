@@ -5,16 +5,18 @@ import {
   HStack,
   Image,
   SimpleGrid,
+  Skeleton,
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import GameGrid from "./GameGrid";
 import Critic from "./Citric";
 import cropImage from "@/services/image-crop";
+import SkeletonCard from "./skeletonCard";
 
 const GamesGrid = () => {
-  const { games, error } = useGames();
-
+  const { games, error, isLoading } = useGames();
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <div>
       <SimpleGrid
@@ -22,6 +24,15 @@ const GamesGrid = () => {
         gap="40px"
         padding={"10px"}
       >
+        {isLoading &&
+          skeletons.map((skeleton) => {
+            return (
+              <div style={{ display: "flex", gap: "40px", flexWrap: "wrap" }}>
+                {isLoading &&
+                  skeletons.map((skeleton) => <SkeletonCard key={skeleton} />)}
+              </div>
+            );
+          })}
         {games.map((game) => (
           <GameGrid key={game.id}>
             <Card.Root maxW="sm" borderRadius={10}>
