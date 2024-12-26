@@ -15,7 +15,7 @@ import cropImage from "@/services/image-crop";
 import SkeletonCard from "./skeletonCard";
 
 const GamesGrid = () => {
-  const { games, error, isLoading } = useGames();
+  const { data, error, isLoading } = useGames();
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <div>
@@ -33,7 +33,7 @@ const GamesGrid = () => {
               </div>
             );
           })}
-        {games.map((game) => (
+        {data.map((game) => (
           <GameGrid key={game.id}>
             <Card.Root maxW="sm" borderRadius={10}>
               <Image
