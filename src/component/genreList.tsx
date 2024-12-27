@@ -1,9 +1,11 @@
 import useGenre from "@/hooks/useGenres";
 import cropImage from "@/services/image-crop";
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 
 const Genrelist = () => {
-  const { data } = useGenre();
+  const { data, isLoading, error } = useGenre();
+  if (error) return null;
+  if (isLoading) return <Spinner color={"black"} />;
   return (
     <List.Root spaceY={"20px"}>
       {data.map((genre) => (
