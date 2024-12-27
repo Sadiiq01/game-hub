@@ -1,6 +1,6 @@
 import { Switch } from "@/components/ui/switch";
 import { HStack, Text } from "@chakra-ui/react";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const MySwitchComponent = () => {
   const [checked, setChecked] = useState(false);

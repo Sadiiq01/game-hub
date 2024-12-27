@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Grid, GridItem, Show, useBreakpointValue } from "@chakra-ui/react";
 import NavBar from "./component/NavBar";
 import GamesGrid from "./component/GamesGrid";

@@ -5,10 +5,8 @@ import {
   HStack,
   Image,
   SimpleGrid,
-  Skeleton,
   Text,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
 import GameGrid from "./GameGrid";
 import Critic from "./Citric";
 import cropImage from "@/services/image-crop";
