@@ -12,9 +12,10 @@ import {
 
 interface Props {
   onSelectGenra: (genre: Genre) => void;
+  selectedGenra: Genre | null;
 }
 
-const Genrelist = ({ onSelectGenra }: Props) => {
+const Genrelist = ({ selectedGenra, onSelectGenra }: Props) => {
   const { data, isLoading, error } = useGenre();
   if (error) return null;
   if (isLoading) return <Spinner color={"black"} />;
@@ -29,6 +30,7 @@ const Genrelist = ({ onSelectGenra }: Props) => {
               borderRadius={8}
             />
             <Button
+              fontWeight={genra.id === selectedGenra?.id ? "bold" : "normal"}
               fontSize={"lg"}
               variant={"plain"}
               onClick={() => {

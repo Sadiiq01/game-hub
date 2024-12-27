@@ -23,6 +23,7 @@ const App = () => {
         <Show when={isLargeScreen}>
           <GridItem area={"aside"}>
             <Genrelist
+              selectedGenra={selectedGenre}
               onSelectGenra={(genra) => {
                 setSelectedGenre(genra);
               }}
