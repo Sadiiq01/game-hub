@@ -17,11 +17,7 @@ const GamesGrid = () => {
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   return (
     <div>
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-        gap="40px"
-        padding={"10px"}
-      >
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} gap="40px" padding={"10px"}>
         {isLoading &&
           skeletons.map((skeleton) => {
             return (
@@ -33,7 +29,7 @@ const GamesGrid = () => {
           })}
         {data.map((game) => (
           <GameGrid key={game.id}>
-            <Card.Root maxW="sm" borderRadius={10}>
+            <Card.Root borderRadius={10} width={"100%"}>
               <Image
                 src={cropImage(game.background_image)}
                 sizes="md"
