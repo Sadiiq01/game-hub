@@ -5,7 +5,7 @@ import MySwitchComponent from "./swithColorMode";
 const NavBar = () => {
   return (
     <div>
-      <HStack width={"100%"}>
+      <HStack width={"100%"} justifyContent={"space-between"}>
         <Image src={logo} boxSize={"60px"} />
         <MySwitchComponent />
       </HStack>
